@@ -26,7 +26,9 @@ yarn add react-native-store-review @platformbuilders/use-rating
 iOS users will be inapp prompted to rate (1 to 5 stars) your app. Android users will be redirected to app's page on Play Store.
 
 ```
-const { shouldRate, askRate } = useReview(DeviceInfo.getVersion());
+import { useRating } from '@platformbuilders/use-rating';
+
+const { shouldRate, askRate } = useRating(DeviceInfo.getVersion());
 
 const checkRating = async () => {
   const minUsageNumber = 3;
