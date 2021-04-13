@@ -2,7 +2,6 @@ name: check
 
 on:
   pull_request:
-  push:
     branches: [master]
 
 jobs:
@@ -23,11 +22,7 @@ jobs:
           key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
             ${{ runner.os }}-yarn-
-      - name: Install
-        uses: borales/actions-yarn/@v2.0.0
-        with:
-          cmd: install
-      - name: Local Linter
-        uses: borales/actions-yarn/@v2.0.0
-        with:
-          cmd: lint
+      - name: Install packages
+        run: yarn install
+      - name: Install packages
+        run: yarn lint
